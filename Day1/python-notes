@@ -1,0 +1,59 @@
+============================================================================================================================
+
+// shows the list of reserved words in python
+import keyword
+print(keyword.kwlist)
+
+============================================================================================================================
+
+Python interactive prompt directly to terminal is called a REPL (Read-Eval-Print-Loop).
+
+============================================================================================================================
+
+TERMINOLOGY
+javascript is array[], object{}
+python is list[], dictionary{}
+
+============================================================================================================================
+
+tuple() : is a list[] that cant be changed (like `const` in javascript)
+my_tuple = (1, 'Aug', 2019)
+
+set{} : 
+- a dictionary without a key. 
+- everything inside the set are unique (no dupliccation) and data will be arranged from small to big automatically. 
+- used for comparison purposes
+
+============================================================================================================================
+
+loopin convention : the array data is plural, the eachData is singular
+eg:
+
+letters = [a,b,c,d,e]
+for letter in letters:
+    print(letter)
+
+-----------------------
+
+i=0
+while i<1:
+    print(i)
+    i+=1
+
+
+============================================================================================================================
+
+python ERROR MESSAGE:
+
+`unexpected EOF while parsing (<unknown> line 6)` : shows if you forgot a bracket `(` or `)`
+`invalid syntax` : forgot/too much indentaton (could be)
+
+============================================================================================================================
+
+isinstance([1,3,6], list) # isinstance() check whether given data is what type . output is true or false
+
+Convert each letter of strings to a list:
+
+my_string = "Hello World"
+my_list = list(my_string)
+print(my_list)   # output [h,e,l,l,o, ,w,o,r,l,d]
