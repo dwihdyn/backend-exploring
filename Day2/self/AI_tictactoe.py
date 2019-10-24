@@ -1,3 +1,5 @@
+# really understand how the AI works
+
 # see https://inventwithpython.com/chapter10.html
 
 import random
@@ -5,17 +7,11 @@ import random
 
 # prints out the board
 def draw_board(board):
-    # print(' | |')
-    print(' ' + board[7] + '|' + board[8] + ' | ' + board[9])
-    # print(' | |')
-    print('----------')
-    # print(' | |')
-    print(' ' + board[4] + '|' + board[5] + ' | ' + board[6])
-    # print(' | |')
-    print('----------')
-    # print(' | |')
-    print(' ' + board[1] + '|' + board[2] + ' | ' + board[3])
-    # print(' | |')
+    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9] + ' ')
+    print('--------')
+    print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6] + ' ')
+    print('--------')
+    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3] + ' ')
 
 
 # lets player which letter to choose
