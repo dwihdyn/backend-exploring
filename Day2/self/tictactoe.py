@@ -1,3 +1,5 @@
+# see https://inventwithpython.com/chapter10.html
+
 import random
 
 
