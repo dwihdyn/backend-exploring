@@ -57,3 +57,9 @@ Convert each letter of strings to a list:
 my_string = "Hello World"
 my_list = list(my_string)
 print(my_list)   # output [h,e,l,l,o, ,w,o,r,l,d]
+
+============================================================================================================================
+
+enumerate() return the value AND the index
+for idx, value in enumerate(my_list , 2): # start printing from number 2
+    print(idx, value)
