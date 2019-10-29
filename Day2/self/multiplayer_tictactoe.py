@@ -1,10 +1,11 @@
-# Issue :
-# when select X or O at the start of game, game will immediately jump to player2 first
+# Code refactor :
 # combine get_player1_move() & get_player2_move() together
 # try combine `while game_in_progress:`loop to one
 
 
 # see https://inventwithpython.com/chapter10.html
+
+import random
 
 
 def draw_board(board):
@@ -29,6 +30,14 @@ def input_player_letter():
         return ['X', 'O']
     else:
         return['O', 'X']
+
+
+# randomly select which player go first, X or O | USES RANDOM
+def who_goes_first():
+    if random.randint(0, 1) == 0:
+        return ' player 2 '
+    else:
+        return ' player 1 '
 
 
 def play_again():
@@ -123,13 +132,13 @@ while True:
 
     player_1, player_2 = input_player_letter()
 
-    turn = 'player 1'
+    turn = who_goes_first()
 
     print('The ' + turn + ' will go first')
     game_in_progress = True
 
     while game_in_progress:
-        if turn == 'player':
+        if turn == ' player 1 ':
             draw_board(the_board)
             move = get_player1_move(the_board)
             make_move(the_board, player_1, move)
@@ -144,7 +153,7 @@ while True:
                     print("Draw, is a tie")
                     break
                 else:
-                    turn = 'computer'
+                    turn = ' player 2 '
 
         else:
             # player 2 move
@@ -162,7 +171,7 @@ while True:
                     print("Draw, is a tie")
                     break
                 else:
-                    turn = 'player'
+                    turn = ' player 1 '
 
     if not play_again():
         break

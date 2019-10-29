@@ -1,1 +1,6 @@
 ============================================================================================================================
+
+RegEx :
+\ (backslash) used to kill the build-in function
+
+eg : . in regex is to return any character, if we want to use just dot for `.com`, we use \.com regex to kill the dot 

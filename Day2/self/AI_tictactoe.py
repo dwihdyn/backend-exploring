@@ -153,7 +153,7 @@ while True:
     # randomly select which player go first, X or O
     turn = who_goes_first()
 
-    print('The ' + turn + 'will go first')
+    print('The ' + turn + ' will go first')
     game_in_progress = True
 
     while game_in_progress:
