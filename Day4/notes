@@ -1,0 +1,54 @@
+===========================================================================================================
+
+naming convention: 
+html/css = function-name
+javascript = functionName
+python = function_name | ClassName
+
+
+===========================================================================================================
+
+
+argument = input of a function
+
+def certain_function(argument):
+    # do something
+
+
+===========================================================================================================
+
+dir("") # return the list of build-in function that can be called in a class
+
+
+===========================================================================================================
+
+- __init__ triggers first thing when the class is being called
+- purpose of class : to be able to wrap many functions together as one
+- each function inside class USUALLY need 'self' as the first argument of the function
+- 'self' is same as 'this' in javascript
+- inheritance : setting a class as the argument of another class | eg  class InheritingClass(AnotherClassName):
+
+
+class ClassName(object):
+    class_attribute = 0
+
+    def __init__(self, instance_attribute1, instance_attribute2):
+        self.instance_attribute1 = attr_1
+        self.instance_attribute2 = attr_2 
+
+    def methods(self, action_for_attr1):
+        self.instance_attribute1 = action_for_attr1
+
+===========================================================================================================
+
+
+===========================================================================================================
+
+===========================================================================================================
+
+===========================================================================================================
+
+
+===========================================================================================================
+
+===========================================================================================================

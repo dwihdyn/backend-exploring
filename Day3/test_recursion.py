@@ -33,26 +33,29 @@ fibonacci : 0,1,1,2,3,5,8,13,21
 # def fibo_iter(len_of_seq):
 #     seq = [0, 1]
 #     # range(0,5) to create list of numbers from 0 to 4 [0,1,2,3,4] | -2 since we manually print out [0,1]
-#     for i in range(len_of_seq - 2):
-#         seq.append(seq[i] + seq[i+1])
-#     return seq
+#     if len_of_seq == 0:
+#         return []
+#     elif len_of_seq == 1:
+#         return [0]
+#     else:
+#         for i in range(len_of_seq - 2):
+#             seq.append(seq[i] + seq[i+1])
+#         return seq
 
 
-# print(fibo_iter(10))
+# print(fibo_iter(5))
 
 
-# fibo - recursive
+# fibo - recursive | try to find a way to print the whole array, like in fibo_iter()
 def fibo_rec(len_of_seq):
-    seq = [0, 1]  # where to put this ?
     if len_of_seq == 0:
         return []
     elif len_of_seq == 1:
-        return [0]
+        return 0
     elif len_of_seq == 2:
-        return [0, 1]
+        return 1
     else:
-        res = fibo_rec(len_of_seq - 1) + fibo_rec(len_of_seq - 2)
-        return seq.append(res)
+        return(fibo_rec(len_of_seq - 1) + fibo_rec(len_of_seq - 2))
 
 
-print(fibo_rec(5))
+print(fibo_rec(8))
