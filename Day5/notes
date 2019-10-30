@@ -1,0 +1,65 @@
+===========================================================================================================
+
+Python:
+- Packages : collection of modules
+- Modules : any .py files
+
+package_file
+    |_ module1.py
+        |_ function1()
+        |_ function2()
+    |_ module2.py
+        |_ otherFunction1()
+        |_ otherFunction2()
+
+===========================================================================================================
+
+PyPi = collection of python libraries (eg: pip)
+pip :
+- package installer (same as npm in javascript)
+- when `pip install some-package` in project1, you need to install again inside project2 
+
+
+Local import : import ./App.css
+
+===========================================================================================================
+
+eg: helpers.py module exist, 3 ways to import
+
+# used when we want all functions in the module
+import helpers
+
+# used when we want to use just 1 function in the module
+from helpers import say_hello()
+
+# used when the module name is long, and want to make it tidier
+import helpers as h
+
+===========================================================================================================
+
+__name__ will print the name of the .py file when imported
+
+but if we directly print(__name__), it will show __main__, since it has no name yet. __main__ is a string
+
+# used when user want to run these few things first before user run the apps. | if no extra things, can just run start_apps, no need __name__ = __main__
+if __name__ == __main__: 
+    # do this action1
+    # do this action2
+    initialise_apps()
+    start_apps()
+    
+- when it run, pycache will be created, no effect if its deleted
+
+===========================================================================================================
+
+
+
+
+
+===========================================================================================================
+
+
+
+
+
+===========================================================================================================
