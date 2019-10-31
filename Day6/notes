@@ -1,0 +1,43 @@
+=================================================================================================
+
+database = collection of tables
+table = collection of data
+schema = the line (relationship) that connect between two or more tables
+
+=================================================================================================
+
+SQL naming convention :
+- keep it one word only
+- for many-to-many relationship table, that new table name is just combine it to one. eg: many-to-many table of `book` & `publisher` is called `book_publisher` 
+
+
+=================================================================================================
+
+
+sketching database schema good practice : https://ondras.zarovi.cz/sql/demo/
+- step1 : EXCEL FIRST, create dummy data in excel first, and understand how does the table interact with each other (the relationship of each table)
+- step2 : DRAW THE DATABASE SCHEMA, draw it with respect to the excel
+
+
+=================================================================================================
+
+
+
+=================================================================================================
+
+examples:
+
+one-to-one:
+- one class can only have one teacher
+- one person can only have one passport
+    - output solution : two tables that looks the same, but one will have the foreign key from other table
+
+one-to-many :
+- one class can have many topics (maths class have pure maths, mechanic, statistic, and many other topics)
+- one author can wrote many books
+    - output solution : `one` table will be way lesser data than the `many` table, and foreign key will be in `many` table 
+
+many-to-many :
+- one student can go many classes & one class can have many students 
+- one book can be published by many publisher company & one publisher company can publish many books
+    - output solution : create a new COMBINED table called `firstTable_secondTable` that stores foreign key from `firstTable_id` & `secondTable_id` | `firstTable` & `secondTable` will look exactly the same, no foreign key needed to be added (as is has been added to the combined table) 

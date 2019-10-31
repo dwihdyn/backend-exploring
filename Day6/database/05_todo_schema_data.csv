@@ -1,0 +1,22 @@
+user,,,,,
+id,username,created_user_date,created_newTask_date,,
+1,babi,07-08-2013,01-21-2019,,
+2,kid,07-09-2013,01-22-2019,,
+3,adult,07-10-2013,01-23-2019,,
+,,,,,
+list,,,,,
+id,user_id,list_name,created_list_date,last_updated_list_date,
+1,3,soccer_todo,07-10-2013,01-23-2019,
+2,1,morning_todo,07-11-2013,01-21-2019,
+3,1,night_todo,07-12-2013,01-21-2019,
+4,2,birthday_todo,07-13-2013,01-22-2019,
+,,,,,
+todo*,,,,,
+id,list_id,todo_task,created_task_date,completed_task_?,completion_date
+1,1,bring soccer ball,01-23-2019,n,NULL
+2,2,wake up,01-21-2019,n,NULL
+3,4,buy cake,01-22-2019,y,01-23-2019
+4,1,buy goal net,01-23-2019,y,01-24-2019
+5,3,sleep,01-21-2019,n,NULL
+,,,,,
+"* for `todo` table, you dont need to put `user_id`, as we can get that info by referring from `list` table, and `list` table show the owner of the table from `user` table",,,,,
