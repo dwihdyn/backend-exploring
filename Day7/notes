@@ -17,3 +17,7 @@ group by col
 having COUNT(*) > 2
 
 =================================================================================================
+
+
+good practice to ALWAYS `group by id`
+because id is unique

@@ -17,23 +17,23 @@ select cm.name, count(*) as num_votes
 from votes as v join congress_members as cm on (v.politician_id = cm.id)
 where politician_id = 339
 
-*4) 
+
+4) 
 select cm.name, count(*) as num_votes
-from votes as v left join congress_members as cm on (v.politician_id = cm.id)
-group by 1
+from votes as v join congress_members as cm on (v.politician_id = cm.id)
+group by cm.id
 order by 2 desc
 
-* answer is the same the expected output, but the names are in different order for each level
-
-
+^ was group by cm.name , which is bad practice. ALWAYS GROUP BY ID (unique)
 
 
 
 *5)
 select cm.name, count(*) as num_votes
-from votes as v left join congress_members as cm
+from votes as v join congress_members as cm
 on (v.politician_id = cm.id)
-group by 1
+group by cm.id
 order by 2
 
-* for politician Rep. Mike Rogers, there are 29 votes when we call it out, but in expected output only shows 6 votes
+^ was group by cm.name , which is bad practice. ALWAYS GROUP BY ID (unique)
+
