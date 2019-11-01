@@ -1,0 +1,19 @@
+=================================================================================================
+
+eg : `student` `class` table exist
+
+join        : will show only student that has class (exclude any null in student & class)
+left join   : will show student that has class AND student with no class
+right join  : will show student that has class AND class with no students
+full join   : show all 
+
+
+
+=================================================================================================
+
+
+
+group by col
+having COUNT(*) > 2
+
+=================================================================================================
