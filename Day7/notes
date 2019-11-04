@@ -8,16 +8,12 @@ right join  : will show student that has class AND class with no students
 full join   : show all 
 
 
-
 =================================================================================================
-
-
 
 group by col
 having COUNT(*) > 2
 
 =================================================================================================
-
 
 good practice to ALWAYS `group by id`
 because id is unique

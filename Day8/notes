@@ -1,0 +1,92 @@
+=================================================================================================
+
+run 'migrate.py' when changes on the table (add/remove new columns) 
+
+=================================================================================================
+
+changing default environments when running terminal.
+> open terminal
+> `code ~/.bashrc`
+> will direct to vscode editor 
+> add at the bottom `conda activate environment-name`
+> restart outside terminal 
+
+
+changing between environments, run on TERMINAL:
+> conda env list
+> conda activate 'environment-name'
+> conda deactivate # to change environment
+
+=================================================================================================
+
+CRUD :
+C-reate
+> Store.create(name = 'newly open store')
+OR 
+> new_st = Store(name = 'newly open store')
+  new_st.save()
+
+R-ead
+> for i in Store.select():
+     print(i.name)      # print all stores
+> Store.get_by_id(2)    # see store in id 2
+> Store[2]              # see the store in 2nd on the list
+> len(Stor.select())    # see how many stores in the list
+> Store.get_or_none()
+> Store.get()
+
+U-pdate
+.save()
+
+D-elete
+.delete_instance()
+
+
+=================================================================================================
+
+     front/backend                 Database (PostgreSQL, SQLite,etc)
+     ----------                    -------------
+     | Python |-<-peewee(orm)-->-- |SQL Syntax |
+     ----------                    -------------
+
+- Python ORM is translation from python to SQL syntax, vise versa | python ORM eg: peewee, SQLAlchemy, Django
+- peewee used to interact to database without using SQL Syntax, but using python language
+- this way, code will be consistent using python code only. will be safer, because if not using this, any coder could inject DROP TABLE, and will actually delete the whole table
+
+
+peewee-db-evolved : lets user make any changes to the database
+
+
+=================================================================================================
+
+see list of PostgreSQL we have:
+in terminal, `psql -l`
+
+
+to activate postgres :
+`sudo su - postgres` to run postgres user | `psql` to go to dwi user
+`psql` again to go to dwi user source
+
+
+check the current connection information
+`postgres-# \conninfo`
+
+
+exit
+`postgres-# \q` OR CTRL+D
+
+
+to see all tables in your postgres:
+\c orm_practise_dev      # go to orm_practise_dev database
+\dt                      # see all tables in postgres
+
+
+
+=================================================================================================
+
+Python REPL : the python terminal (python shell) => go to terminal > type 'python' > that is your python REPL
+
+=================================================================================================
+
+# to update all packages requirements lists
+pip freeze > requirements.txt
