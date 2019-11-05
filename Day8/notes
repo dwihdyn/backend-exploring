@@ -90,3 +90,18 @@ Python REPL : the python terminal (python shell) => go to terminal > type 'pytho
 
 # to update all packages requirements lists
 pip freeze > requirements.txt
+
+=================================================================================================
+
+steps:
+1) create new conda env python 3.7
+2) pip install peewee, psycopg2-binary, peewee-db-evolve & freeze > requirements.txt
+3) create todo_list database
+4) update class todolist & todotask in models.py
+5) create main.py for basic UI & update the actions to taking in new tasks
+6) run migrate.py , then main.py everytime to enter new todo / check current todo
+7) create very first dummy task to get the index (solve the 'list index out of range'). copy paste from main.py and put it in python shell
+8) terminal > `python` > from main import *
+9) test ideas directly in python shell -> when works, implement idea in .py file -> repeat test
+
+
