@@ -26,6 +26,7 @@ class BaseModel(pw.Model):
 # # table of users
 class UserName(BaseModel):
     owner_name = pw.CharField()
+    password = pw.CharField(default='111111')
 
 
 # table : different kind of list

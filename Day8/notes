@@ -65,7 +65,7 @@ in terminal, `psql -l`
 
 to activate postgres :
 `sudo su - postgres` to run postgres user | `psql` to go to dwi user
-`psql` again to go to dwi user source
+`psql database_name_here` (see all table in `psql -l`)
 
 
 check the current connection information
@@ -94,7 +94,7 @@ pip freeze > requirements.txt
 =================================================================================================
 
 steps:
-1) create new conda env python 3.7
+1) create new conda env python 3.7 
 2) pip install peewee, psycopg2-binary, peewee-db-evolve & freeze > requirements.txt
 3) create todo_list database
 4) update class todolist & todotask in models.py
@@ -105,3 +105,6 @@ steps:
 9) test ideas directly in python shell -> when works, implement idea in .py file -> repeat test
 
 
+# enter data for list_owner on python (or psql using sql syntax)
+# enter first_user data
+# done
