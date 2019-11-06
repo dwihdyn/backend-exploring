@@ -13,6 +13,7 @@ Projects done :
     <li>Day6 : Database Schema, one-to-one | many-to-many , ToDo app database schema, University Courses database schema (https://ondras.zarovi.cz/sql/demo/)</li>
     <li>Day7 : PoolDB & SQL syntax training (https://next-sql.netlify.com) </li>
     <li>Day8 : peewee ORM & CRUD, postgreSQL, Python REPL, environment-management, inventory management database</li>
+    <li>Day9 : Intro on Flask. setup, templates & static files, dynamic routing</li>
 
 </ol>
 
