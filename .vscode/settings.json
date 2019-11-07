@@ -2,5 +2,5 @@
     "python.linting.enabled": true,
     "python.formatting.provider": "autopep8",
     "editor.defaultFormatter": "ms-python.python",
-    "python.pythonPath": "/home/dwi/anaconda3/envs/flask_demo/bin/python"
+    "python.pythonPath": "/home/dwi/anaconda3/envs/inv_mgmt_flask_demo/bin/python"
 }

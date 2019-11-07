@@ -1,0 +1,109 @@
+===============================================================================================================
+
+render synonym : give, provide, contribute
+
+===============================================================================================================
+
+git commit, everytime you successfuly build a feature
+
+===============================================================================================================
+
+flask:
+- allow to build server
+- allow to render your html
+- similar to react
+- unlike django (all build in), flask create everything from scratch
+- instagram uses flask as their backend
+
+
+
+===============================================================================================================
+
+flask steps:
+1) create conda new env python 3.7
+2) ptp install flask
+3) create app.py inside the folder
+4) `@app.route('/index')` function decorator, to let computer know to connect the given class/function to the selected web address
+5) render_template, create `templates` folder, open `index.html` (templates for html only)
+6) `_layout.html` inside `templates` folder for styles, bootstrap, etc
+7) add images by creating `static` folder -> `images` folder -> put .jpg .jpeg .png here 
+8) image resizing by creating `css` folder inside `static` folder. -> create `main.css`
+
+
+===============================================================================================================
+
+
+jinja : 
+- used to create html, xml, with combination of python using {% %} {#  #} {{...}}
+- jinja in flask python == jsx in react javascript
+
+
+===============================================================================================================
+
+SPA (Single Page Apps) architecture -> React js (for complex apps, maps, etc)
+
+Server rendered frontend -> Flask python (for quick simple website)
+
+===============================================================================================================
+
+RESTFUL : 
+- a convention/practise that to make sure your url is meaningful
+- eg : your website profile page, a good RESTFUL link will read as yourwebsite/user/usernamehere
+
+===============================================================================================================
+
+dynamic way to have href, because using href=`/folder/file.html` method, we need to rewrite again if we move folder
+
+<a href="{{ url_for('functionName') }}">Contact Us</a>
+
+
+===============================================================================================================
+
+TableName.get_or_none() # return either the index number, or None (can be used for validation using if-statement)
+
+
+===============================================================================================================
+
+== Hot Reloading ==
+to deploy flask website to development:
+> go to terminal
+> `export FLASK_ENV=development`
+> `export FLASK_APP=app`
+> `flask run`
+
+why ?
+- development will always debug=True
+- by default `python app.py` , it will deploy to production.
+- when error occured in production, 
+    if debug=False (default) , will show `internal error` without showing which line of code gone wrong
+    if debug=True, will show which line of code gone wrong, BUT user will be able to see it too, and user can exploit your site
+
+
+Hot reloading will be reset when we exit vscode 
+solution -> pip install -U python-dotenv
+
+===============================================================================================================
+
+to show flask repl :
+terminal -> `flask shell` 
+
+===============================================================================================================
+
+
+== models.py ==
+class BaseModel(pw.Model):
+
+    class Meta:
+        database = db
+        # False is to set our db table names in snake convention (base_model). if true (default), naming will be no convention (basemodel) hence ignore_tables wont be able to detect, and basemodel WONT be ignored.
+        legacy_table_names = False
+
+
+== server.py ==
+@app.cli.command()
+def migrate():
+    db.evolve(ignore_tables={'base_model'}) # if legacy_table_names = true, has to be `basemodel`
+
+===============================================================================================================
+===============================================================================================================
+===============================================================================================================

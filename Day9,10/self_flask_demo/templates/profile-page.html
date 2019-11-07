@@ -1,0 +1,10 @@
+{% extends "_layout.html" %} {%block ExtContent%}
+<h3>this is {{ username_profile_page }} profile page</h3>
+
+{% if username_profile_page == 'user1' %}
+<img src="../static/images/kevinrock.jpeg" alt="user1 img" />
+
+{% elif username_profile_page == 'user2' %}
+<img src="../static/images/blake.jpg" alt="user2 img" />
+
+{% endif %} {%endblock%}

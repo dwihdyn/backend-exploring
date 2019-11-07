@@ -1,0 +1,32 @@
+{% extends "_layout.html" %} {% block ExtContent %}
+
+<form action="{{ url_for('index') }}">
+  <div class="form-group">
+    <label for="first_name">First Name : ...</label>
+    <input type="text" class="form-control" name="first_name" />
+  </div>
+
+  <div class="form-group">
+    <label for="last_name">Last Name : ...</label>
+    <input type="text" class="form-control" name="last_name" />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email : ...</label>
+    <input type="text" class="form-control" name="email" />
+  </div>
+
+  <div class="form-group">
+    <label for="question">How can we help you?</label>
+    <textarea
+      type="text"
+      name="question"
+      rows="3"
+      class="form-control"
+    ></textarea>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+{% endblock %}
