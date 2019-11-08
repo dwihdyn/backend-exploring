@@ -1,0 +1,69 @@
+===========================================================================================================================
+
+flask blueprint 
+- to organise our code better & reads easier. no effect on performance whatsoever
+- way to organise all of our website routes
+
+- eg: inventory warehouse app need 3 blueprints.
+Store/
+    |_ blueprint/
+        |_ store/create_store.html
+        |_ store/delete_store.html
+
+Warehouse/
+    |_ blueprint/
+        |_ warehouse/create_warehouse.html
+        |_ warehouse/delete_warehouse.html
+
+Product/
+    |_ blueprint/
+        |_ product/create_product.html
+        |_ product/delete_product.html
+
+
+===========================================================================================================================
+
+config.py : setup on each stages
+development -> testing -> production
+
+===========================================================================================================================
+
+- all website templates in folder `instagram_web` -> `blueprints` ->  `templates`
+
+`breakpoint()` in python (changes in terminal) == `debugger` in js (changes in console google chorme) 
+
+===========================================================================================================================
+
+link info : https://www.geeksforgeeks.org/args-kwargs-python/
+def save(self, *args, **kwargs):
+
+
+*args : arguments
+**kwargs " keyWord arguments
+
+user_details('dwi')                 # 'dwi' is the argument *args
+user_details(first_name = 'dwi')    # first_name = 'dwi' is keyWord argument **kwargs
+
+star (*) means optional. still can run if blank. 
+
+===========================================================================================================================
+
+- focus on `instagram_web` & `models` folder first
+
+===========================================================================================================================
+
+say, we create a table called `user`
+class User(BaseModel):
+    name = pw.CharField(unique=False)
+
+if we call psql `select * from user;` , it will show the laptop username (dwi)
+, because `select * from user;` is a reserved name to store this laptop name
+
+to solve this :
+method1 = use `select * from public.user;` to tell computer we want to public view of database, NOT the local `user` name
+method2 = rename table to `class UserName(BaseModel)` and then `flask migrate`
+===========================================================================================================================
+
+use flask shell (not python shell) because this will run .env too
+
+===========================================================================================================================

@@ -105,5 +105,14 @@ def migrate():
     db.evolve(ignore_tables={'base_model'}) # if legacy_table_names = true, has to be `basemodel`
 
 ===============================================================================================================
+
+when new store name is enterred.....
+
+1) redirect : data will be saved & redirect to whichever html we state to redirect (eg: redirect to 'index.html')
+
+2) render : data will the saved in the link, and we will still in submission form (eg, link become `yoursite.com/register/store=newstore?owner_name=dwi) 
+
+
+
 ===============================================================================================================
 ===============================================================================================================

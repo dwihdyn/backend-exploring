@@ -1,6 +1,6 @@
 # Exploring Backend. Python, SQL, Flask (Python Framework)
 
-10 days exploring + 5 days recreating instagram with Flask
+10 days exploring + 10 days recreating instagram with Flask
 
 Projects done :
 
@@ -14,6 +14,17 @@ Projects done :
     <li>Day7 : PoolDB & SQL syntax training (https://next-sql.netlify.com) </li>
     <li>Day8 : peewee ORM & CRUD, postgreSQL, Python REPL, environment-management, inventory management database</li>
     <li>Day9 : Intro on Flask. setup, templates & static files, dynamic routing</li>
+    <li>Day10 : Inventory Management System - with flask</li>
+    <li>Day11 - 20 : Nextagram - with flask</li>
 
 </ol>
+
+<p>---------------------------------------------------------------------------------------------------------------------------</p>
+
+<h5>Notes</h5>
+<ol>
+    <li> solve unable to open folder inside your folder (init inside init issue) : (1) delete the `.git` inside the folder. (2) bring out that file to higher level (3) git push (4) put back that folder into original position (5) git push again</li>
+</ol>
+
+
 
