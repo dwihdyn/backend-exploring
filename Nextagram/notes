@@ -67,3 +67,19 @@ method2 = rename table to `class UserName(BaseModel)` and then `flask migrate`
 use flask shell (not python shell) because this will run .env too
 
 ===========================================================================================================================
+
+method :
+GET = data will be stored in website URL (to load a page)
+POST = data will be send to database as HTTP post transaction (for signup/login) (to submit a data enterred)
+
+
+===========================================================================================================================
+
+everytime you created new blueprint, register (and import the views.py) your blueprint in `instagram_web > __init__.py`
+
+===========================================================================================================================
+
+- bucket name : nextagram-dwi
+- save `credential.csv`
+
+===========================================================================================================================
