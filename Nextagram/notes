@@ -68,8 +68,8 @@ use flask shell (not python shell) because this will run .env too
 
 ===========================================================================================================================
 
-method :
-GET = data will be stored in website URL (to load a page)
+ROUTE method :
+GET = data will be stored in website URL (to load a page)/(to get data from db)
 POST = data will be send to database as HTTP post transaction (for signup/login) (to submit a data enterred)
 
 
@@ -83,3 +83,180 @@ everytime you created new blueprint, register (and import the views.py) your blu
 - save `credential.csv`
 
 ===========================================================================================================================
+
+all POST request must put the csrf_token in their .html
+`              <input
+                type="hidden"
+                name="csrf_token"
+                value="{{ csrf_token() }}"
+              />`
+
+===========================================================================================================================
+
+
+flask-login setup :
+1) setup in `app.py` for :
+    '''
+    from flask_login import LoginManager
+    from models.user import UserCredential
+
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(user_id):
+    return UserCredential.get(user_id)
+    '''
+
+2) setup database in `user.py`
+    '''
+    from flask_login import UserMixin
+
+    class UserCredential(UserMixin, BaseModel):
+        name = pw.CharField()
+    '''
+
+3) setup in `views.py` on where user actually needs to login (and logout). called session bc there are login & out
+    '''
+    from flask_login import login_user, logout_user, login_required, current_user
+
+    # login
+    @session_blueprint.route('/', methods=['POST'])
+    def create():
+        enterred_username = request.form.get('username')
+        enterred_password = request.form.get('password')
+        user_check = UserCredential.get_or_none(UserCredential.name == enterred_username)
+        if user_check:
+            login_user(user_check)
+            return redirect(url_for('session.show'))
+
+    # logout
+    @session_blueprint.route('/delete')
+    @login_required
+    def destroy():
+        logout_user()
+        flash('you successfully logged out', 'text-success')
+        return redirect(url_for( 'session.new' ))
+
+    '''
+
+4) Setup the .html (inside navbar is recommended)
+    '''
+    {% if current_user.is_authenticated %}
+        <a class="dropdown-item" href="{{ url_for('sessions.destroy') }}">Logout</a>
+    {% else %}
+        <a class="dropdown-item" href="{{ url_for('sessions.new') }}">Login</a>
+    {% endif %}
+    '''
+
+
+===========================================================================================================================
+
+class vs instance ?
+
+@hybrid_property  # lets the function to become a property too. one usage is to rename our `profile_image` property to shortName.jpg , not a long `s3.amazonaws.shortName.jpg`
+def profile_image_url():
+    return 'https://' + Config.S3_LOCATION + self.profile_image
+
+
+property :
+- one part of the class
+- eg. 
+    '''
+    class UserCredential(BaseModel):
+        username = pw.CharField()   # username is a property
+    '''
+
+
+
+
+===========================================================================================================================
+
+assets : used to manages precompiler
+
+in frontend :
+- javascript, css, bootstrap link install
+
+
+browser can only understand html, css, javascript. (python converted to html using jinja)
+
+
+both sass & scss below are more powerful version of css & both documentation are in sass (no such thing as scss documentation)
+sass (css using indentation, like python) vs scss (css using curly brackets {})
+
+
+
+
+===========================================================================================================================
+
+# one liner for loop
+[i for i in range(11)] 
+
+
+# see all functions available to see the SQL table content | UserCredential is the class model with name, password, email properties
+UserCredential.select().__dir__()   
+
+
+# prefetch is to automatically join the two databases without expliciting "with respect to which table"
+qry = UserCredential.select().prefetch(ImageFeed)
+
+===========================================================================================================================
+
+OAuth : enabling to login thru external (fb, gmail, github, linkedin)
+
+steps on how to implement OAuth google:
+- Create credentials on Google Console
+- Add credentials to .env
+- Install Authlib package
+- Create helper file to build OAuth client
+- Initialize OAuth with App in __init__
+- Create a route to login with Google
+- Create a route to redirect back to from Google
+
+picture at : /home/dwi/Documents/Next-academy/backend-course/Nextagram/curriculum-nextagram-template/oauth.png
+
+===========================================================================================================================
+
+it is actually a GOOD practice to comparing variables with the same name to avoid any typo
+eg : 
+
+1) blueprints/donations/views.py 
+'''
+@donations_blueprint.route('/<image_id>/new', methods=['GET'])
+@login_required
+def new(image_id):
+    image = ImageFeed.get_or_none(ImageFeed.id == image_id)  
+    client_token = generate_client_token
+
+    return render_template('donations/new.html', image=image, client_token=client_token) # here
+'''
+
+2) config.py
+'''
+BT_PUBLIC_KEY = os.getenv("BT_PUBLIC_KEY")
+BT_SECRET_KEY = os.getenv("BT_SECRET_KEY")
+BT_MERCHANT_ID = os.getenv("BT_MERCHANT_ID")
+'''
+
+
+===========================================================================================================================
+
+
+heroku app checklist prep
+- install sudo in heroku website + type `heroku` in terminal, to see whether it works
+- delete `peewee-db-evolve` in requirements.txt
+- pip install gunicorn (in selected conda env)
+- create & fill up `Procfile` in your project root
+- git add & commit 
+- terminal -> `heroku login` -> `heroku create`
+- `git remove -v` to confirm github link -> `git push heroku master`
+- chrome browser -> heroku.com -> select project name that is same as in your `git remote -v` -> click 'configure add-on' -> add 'heroku postrgres'
+- add back 'peewee-db-evolve' to requirements.txt by typing in terminal `pip freeze > requirements.txt`
+- .env -> change to `FLASK_ENV=production`
+- heroku.com -> click 'settings' -> click 'Config Vars' -> enter ALL data from .env , except `DATABASE_URL`, remove any quotes
+- terminal -> `heroku config` to ensure all keys from .env are in already
+- `git push heroku master` -> `heroku open` to see your website
+- `heroku logs` to see any error message
+- console.developers.google.com -> click "OAuth consent screen" section -> add your website 'ancient-escarpment-60019.herokuapp.com' under 'Authorised domains' section 
+    -> click "Credential" section -> add link to login 'https://ancient-escarpment-60019.herokuapp.com/sessions/authorize/google' under 'Authorised redirect URIs'
+- everytime we create new feature to our website, `git push heroku master`

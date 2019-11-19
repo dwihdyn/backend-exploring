@@ -1,0 +1,34 @@
+TODO
+- settle upload profile pic (github) & check it work (done)
+- make sure all user has picture showing in homepage (done)
+- once login, for all user directory is just '/' (done)
+- have a button direct to `images/new` picture uploading (done)
+- finish up images/views.py on uploading post to aws (`create()`) (done)
+- prepare models.image.py for feed only (done)
+- when uploaded, redirect user to home (done) + 
+- print range(11) with loop (done)
+- showing the feed (done)
+- more user-friendly name for loop every image in home.html (done)
+- rename all database to more user friendly (done)
+
+===== settle donation - payment using braintree
+- .env setup (done)
+- /blueprints/__init__.py blueprint setup for donations (done)
+- create new db in models/donation.py (done)
+- util/braintree.py setup (done)
+- new blueprint for donation (done)
+- frontend blueprints/donations/templates/donations/new.html  (done)
+- backend blueprints/donations/view.py file new()(take to html page) (done) & create() (payment process) (done)
+
+
+===== send email automatically to receiver using sendgrid.com 
+
+
+- take user to the selected user when user is clicked (done) 
+- homepage show other users only
+- when user clicked, show name, email profile pic, feed. + donate button
+
+
+
+
+- login OAuth using github,linkedin, fb (hard)
