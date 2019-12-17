@@ -25,10 +25,15 @@ TODO
 
 
 - take user to the selected user when user is clicked (done) 
+
 - homepage show other users only
 - when user clicked, show name, email profile pic, feed. + donate button
-
-
-
-
 - login OAuth using github,linkedin, fb (hard)
+
+
+===== API -> create API from your flask, that the API can be implemented in your react
+- create API path `http://localhost:5000/api/v1/users/show` (done)
+- hard code the output, which is the 3 users sample, according to nextagram API documentation under "GET /users" `https://documenter.getpostman.com/view/2792518/RzZ6HLBy?version=latest`
+- implement by show all users in react, using your new API path (done)
+- make your react show the users + profile picture only (done)
+- show user image feed
