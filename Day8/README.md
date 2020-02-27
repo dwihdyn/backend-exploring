@@ -5,11 +5,8 @@
 - `sudo su - postgres`
 - `createdb yournewdb`
 - `psql` # create new superuser for root
-  - `CREATE ROLE root LOGIN SUPERUSER PASSWORD 'yourpassword';
-  - `ALTER ROLE root WITH CREATEDB;`
-  - `ALTER ROLE root WITH CREATEROLE;`
-  - `ALTER ROLE root WITH REPLICATION;`
-  - `ALTER ROLE root WITH BYPASSRLS;`
+  - `CREATE ROLE root LOGIN SUPERUSER PASSWORD 'yourpassword';`
+  - `ALTER ROLE root WITH CREATEDB CREATEROLE REPLICATION BYPASSRLS;`
 - `exit`
 - do your db.connect() as usual
 
