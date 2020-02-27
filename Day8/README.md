@@ -1,3 +1,19 @@
+## How to install psql for ubuntu
+
+- `sudo apt update`
+- `sudo apt install postgresql postgresql-contrib`
+- `sudo su - postgres`
+- `createdb yournewdb`
+- `psql` # create new superuser for root
+  - `CREATE ROLE root LOGIN SUPERUSER PASSWORD 'yourpassword';
+  - `ALTER ROLE root WITH CREATEDB;`
+  - `ALTER ROLE root WITH CREATEROLE;`
+  - `ALTER ROLE root WITH REPLICATION;`
+  - `ALTER ROLE root WITH BYPASSRLS;`
+- `exit`
+- do your db.connect() as usual
+
+
 <h2>Step by step how to launch</h2>
 <ol>
 <li>git clone, create conda env python 3.7 , </l1>
